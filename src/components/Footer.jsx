@@ -9,7 +9,7 @@ export const Footer = () => {
                     <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
-                    fill="#4F46E5"
+                    fill="rgb(196,130,252)"
                     className="w-10 h-10"
                     >
                     <path
@@ -144,7 +144,7 @@ export const Footer = () => {
                         type="email"
                         placeholder="Email"
                     />
-                    <button className="active:scale-95 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:ring-offset-1 dark:hover:bg-indigo-700 dark:hover:text-gray-100 disabled:opacity-50 dark:focus:ring-indigo-400 disabled:pointer-events-none dark:focus:ring-offset-gray-900 bg-indigo-600 dark:bg-indigo-600 text-white hover:bg-indigo-700 h-10 py-2 px-4">
+                    <button className="active:scale-95 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-1 focus:ring-[rgb(196,130,252)] focus:ring-offset-1 dark:hover:bg-[rgb(196,130,252,0.8)] dark:hover:text-gray-100 disabled:opacity-50 dark:focus:ring-[rgb(196,130,252)] disabled:pointer-events-none dark:focus:ring-offset-gray-900 bg-[rgb(196,130,252)] dark:bg-[rgb(196,130,252)] text-white hover:bg-[rgb(196,130,252,0.8)] h-10 py-2 px-4">
                         Subscribe
                     </button>
                     </form>

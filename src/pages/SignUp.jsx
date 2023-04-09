@@ -15,7 +15,7 @@ export const SignUp = () => {
                     <Link
                     to="/signin"
                     title="SignIn Page"
-                    className="font-medium text-indigo-600 transition-all duration-200 hover:text-indigo-700 hover:underline focus:text-indigo-700"
+                    className="font-medium text-[rgb(196,130,252)] transition-all duration-200 hover:text-[rgb(196,130,252,0.8)] hover:underline focus:text-[rgb(196,130,252,0.5)]"
                     >
                     Sign In
                     </Link>
@@ -33,7 +33,7 @@ export const SignUp = () => {
                         </label>
                         <div className="mt-2.5">
                         <input
-                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[rgb(196,130,252,0.8)] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-50 dark:text-gray-50 dark:focus:ring-[rgb(196,130,252,0.5)] dark:focus:ring-offset-[rgb(196,130,252,0.8)]"
                             type="text"
                             placeholder="Enter You Full Name"
                             id="name"
@@ -51,7 +51,7 @@ export const SignUp = () => {
                         </label>
                         <div className="mt-2.5">
                         <input
-                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[rgb(196,130,252,0.8)] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-50 dark:text-gray-50 dark:focus:ring-[rgb(196,130,252,0.5)] dark:focus:ring-offset-[rgb(196,130,252,0.8)]"
                             type="email"
                             placeholder="Enter Your Email"
                             id="email"
@@ -69,7 +69,7 @@ export const SignUp = () => {
                         </label>
                         <div className="mt-2.5">
                         <input
-                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[rgb(196,130,252,0.8)] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-50 dark:text-gray-50 dark:focus:ring-[rgb(196,130,252,0.5)] dark:focus:ring-offset-[rgb(196,130,252,0.8)]"
                             type="email"
                             placeholder="Enter Your Password"
                             id="password"
@@ -81,7 +81,7 @@ export const SignUp = () => {
                         <button onClick={()=>{
                             navigate('/signin')
                         }} 
-                        className="w-full inline-flex items-center justify-center rounded-md bg-indigo-600 px-3.5 py-2.5 text-base font-semibold leading-7 text-white hover:bg-indigo-500">
+                        className="w-full inline-flex items-center justify-center rounded-md bg-[rgb(196,130,252)] px-3.5 py-2.5 text-base font-semibold leading-7 text-white hover:rgb(196,130,252,0.8)">
                         Get started
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
