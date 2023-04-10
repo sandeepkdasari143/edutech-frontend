@@ -89,7 +89,7 @@ export const Header = () => {
                     </svg>
                 </div>
                 {
-                    isUserExists ? (
+                    !isUserExists ? (
                         <div className="ml-5 space-x-2 hidden lg:block">
                             <button onClick={()=>{
                                 navigate('/signin');
