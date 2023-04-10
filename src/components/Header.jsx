@@ -105,7 +105,7 @@ export const Header = () => {
                             </button>
                         </div>
                     ) : (
-                        <div className="hidden lg:block">
+                        <div className="ml-5 hidden lg:block">
                             <div className="flex items-center space-x-2">
                                 <img
                                 className="inline-block w-12 h-12 rounded-full"
