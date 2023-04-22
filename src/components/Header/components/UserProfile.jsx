@@ -8,12 +8,14 @@ const UserProfile = () => {
     const navigate = useNavigate()
     const userDetails = useSelector((state) => state.auth.existingUserCredentials);
     const dispatch = useDispatch();
+    
     const logOutTheUser = async () => {
         if (userDetails) {
             try {
                 URL = 'http://localhost:369/api/v1/logout'
                 const response = await fetch(URL);
                 const data = await response.json();
+
                 if (!data?.success) {
                     return toast.error(data?.message, {
                             position: "top-right",
@@ -26,6 +28,7 @@ const UserProfile = () => {
                             theme: "colored",
                         });
                 }
+                
                 // TODO: Dispatch the LOGOUT Action...
                 dispatch(LOGOUT());
                 toast.warning(data.message, {
@@ -53,6 +56,7 @@ const UserProfile = () => {
             }
         }
     }
+
     return (
         <div className="ml-5 hidden lg:block">
             <div className="flex items-center space-x-2">

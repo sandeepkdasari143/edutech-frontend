@@ -16,10 +16,12 @@ export const SignUp = () => {
 
     const SignUpTheUser = async (e) => {
         e.preventDefault();
+        //Setting up the req.body 
         const formData = new FormData();
         formData.set('username', username);
         formData.set('email', email);
         formData.set('password', password);
+
         const URL = 'http://localhost:369/api/v1/signup';
         const OPTIONS = {
             method: "POST",
@@ -42,7 +44,6 @@ export const SignUp = () => {
                     progress: undefined,
                     theme: "colored",
                 });
-
             }
             
             dispatch(SIGNUP(data));
