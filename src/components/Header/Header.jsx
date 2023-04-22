@@ -102,13 +102,13 @@ export const Header = () => {
                     ) : (
                         <div className="ml-5 space-x-2 hidden lg:block">
                             <button onClick={()=>{
-                                navigate('/signin');
+                                    navigate('/signin', {replace: true});
                             }}
                             className="rounded-md border border-[rgb(196,130,252)] px-3.5 py-1.5 text-base font-semibold leading-7 text-[rgb(196,130,252)] hover:bg-[rgb(196,130,252)] hover:text-black">
                                 SignIn
                             </button>
                             <button onClick={()=>{
-                                navigate('/signup');
+                                navigate("/signup", { replace: true });
                             }}
                             className="rounded-md bg-[rgb(196,130,252)] px-3.5 py-1.5 text-base font-semibold leading-7 text-black hover:bg-[rgb(196,130,252,0.8)]">
                                 SignUp
