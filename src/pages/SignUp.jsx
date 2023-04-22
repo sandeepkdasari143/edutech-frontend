@@ -1,8 +1,14 @@
 import React from "react";
 import {Link, useNavigate} from 'react-router-dom';
 import { toast } from "react-toastify";
+import { useSelector, useDispatch } from "react-redux";
+import { SIGNUP } from "../redux/auth/authSlice";
 
 export const SignUp = () => {
+
+    const auth = useSelector((state) => state.auth);
+    // console.log("SignUP Route: ", auth)
+    const dispatch = useDispatch();
 
     const [username, setUserName] = React.useState("");
     const [email, setEmail] = React.useState(null);
@@ -38,7 +44,8 @@ export const SignUp = () => {
                 });
 
             }
-            // console.log(data)
+            
+            dispatch(SIGNUP(data));
             toast.success(data.message, {
                 position: "top-right",
                 autoClose: 3000,

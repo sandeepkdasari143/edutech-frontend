@@ -2,9 +2,16 @@ import React from "react";
 import {Link, useNavigate} from 'react-router-dom';
 import UserProfile from "./components/UserProfile";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+
+
 export const Header = () => {
+
+    const dispatch = useDispatch();
+    const isUserExists = useSelector((state) => state.auth.isExistingUser);
+
     const navigate = useNavigate();
-    const [isUserExists] = React.useState(true);
+    
     return (
         <div className="">
             <nav className="relative px-8 py-4 flex justify-between items-center border-y border-gray-400 dark:border-gray-700">
@@ -90,7 +97,9 @@ export const Header = () => {
                     </svg>
                 </div>
                 {
-                    !isUserExists ? (
+                    isUserExists ? (
+                        <UserProfile />
+                    ) : (
                         <div className="ml-5 space-x-2 hidden lg:block">
                             <button onClick={()=>{
                                 navigate('/signin');
@@ -105,8 +114,6 @@ export const Header = () => {
                                 SignUp
                             </button>
                         </div>
-                    ) : (
-                        <UserProfile />
                     )
                 }
             </nav>

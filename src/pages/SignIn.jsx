@@ -1,9 +1,73 @@
 import React from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { SIGNIN } from "../redux/auth/authSlice";
 
 export const SignIn = () => {
+    const [email, setEmail] = React.useState(null);
+    const [password, setPassword] = React.useState(null);
+
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
+
+    const SignInTheUser = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.set('email', email);
+        formData.set('password', password);
+        const URL = 'http://localhost:369/api/v1/login';
+        const OPTIONS = {
+            method: "POST",
+            body: formData
+        }
+        const signInRequest = new Request(URL, OPTIONS);
+        try {
+            const response = await fetch(signInRequest);
+            // console.log(response)
+            const data = await response.json();
+            if (!data.success) {
+                // console.log(data)
+                return toast.error(data.message, {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            }
+            
+            dispatch(SIGNIN(data));
+            toast.success(data.message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+            return navigate("/", {replace: true})
+        } catch (error) {
+            return toast.error(error.message, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+        
+
+    }
     return (
         <section>
             <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -23,7 +87,7 @@ export const SignIn = () => {
                     </Link>
                     </p>
 
-                    <form action="#" method="POST" className="mt-8">
+                    <form onSubmit={SignInTheUser} className="mt-8">
                     <div className="space-y-5">
                         <div>
                         <label
@@ -37,8 +101,10 @@ export const SignIn = () => {
                             <input
                             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[rgb(196,130,252,0.8)] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-50 dark:text-gray-50 dark:focus:ring-[rgb(196,130,252,0.5)] dark:focus:ring-offset-[rgb(196,130,252,0.8)]"
                             type="email"
-                            placeholder="Email"
-                            ></input>
+                            onChange={e => setEmail(e.target.value)}
+                            placeholder="Enter Your Email"
+                            id="email"
+                        ></input>
                         </div>
                         </div>
 
@@ -65,15 +131,15 @@ export const SignIn = () => {
                             <input
                             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[rgb(196,130,252,0.8)] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-50 dark:text-gray-50 dark:focus:ring-[rgb(196,130,252,0.5)] dark:focus:ring-offset-[rgb(196,130,252,0.8)]"
                             type="password"
-                            placeholder="Password"
-                            ></input>
+                            onChange={e => setPassword(e.target.value)}
+                            placeholder="Enter Your Password"
+                            id="password"
+                        ></input>
                         </div>
                         </div>
 
                         <div>
-                        <button onClick={()=>{
-                            navigate('/')
-                        }}
+                        <button type="submit"
                         className="w-full inline-flex items-center justify-center rounded-md bg-[rgb(196,130,252)] px-3.5 py-2.5 text-base font-semibold leading-7 text-white hover:bg-[rgb(196,130,252,0.8)]">
                             Get started
                             <svg
